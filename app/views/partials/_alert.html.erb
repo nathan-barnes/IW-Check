@@ -1,0 +1,14 @@
+<%# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  # Alert
+  # location: views/partials/_alert.html.erb
+  #
+  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%>
+
+<% if notice || alert %>
+  <div class="notification <%= notice ? 'notice' : 'alert' %>">
+    <% flash.each do |name, msg| -%>
+      <span class="notification__message"><%= msg %></span>
+    <% end %>
+  </div>
+<% end %>

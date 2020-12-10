@@ -1,0 +1,38 @@
+<%# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  # ImageWall User Signup
+  # location: views/users/registrations/signup.html.erb
+  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%>
+
+<section class="page-section page-section--actions">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "g" }) do |f| %>
+    <div class="g12-xs g6-sm g3-sm-offset g4-md g4-md-offset">
+      <%= devise_error_messages! %>
+    </div>
+    <div class="g12-xs g6-sm g3-sm-offset g4-md g4-md-offset">
+      <h2 class="modal__title">Sign Up</h2>
+    </div>
+    <div class="g12-xs g6-sm g3-sm-offset g4-md g4-md-offset modal__field">
+      <%= f.label :email, class: "modal__label" %>
+      <%= f.email_field :email, autofocus: true, placeholder: "you@example.com", class: "modal__input" %>
+    </div>
+    <div class="g12-xs g6-sm g3-sm-offset g4-md g4-md-offset modal__field">
+      <%= f.label :password, class: "modal__label" %>
+      <%= f.password_field :password, autocomplete: "off", class: "modal__input" %>
+      <em>6 characters minimum</em>
+    </div>
+    <div class="g12-xs g6-sm g3-sm-offset g4-md g4-md-offset modal__field">
+      <%= f.label :password_confirmation, class: "modal__label" %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: "modal__input" %>
+    </div>
+    <div class="g12-xs g6-sm g3-sm-offset g4-md g4-md-offset">
+      <%= f.submit "Sign up", class: "modal__submit" %>
+    </div>
+  <% end %>
+  <div class="g">
+    <div class="g12-xs g6-sm g3-sm-offset g4-md g4-md-offset modal__options">
+      <%= link_to "Login", new_user_session_path, class: "modal__link", title: "Login" %>
+      <%= link_to "Forgot your password?", new_user_password_path, class: "modal__link", title:"Forgot your Password?" %>
+    </div>
+  </div>
+</section>

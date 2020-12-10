@@ -1,0 +1,24 @@
+<%# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  # Admin — Resources Edit
+  # location: views/admin/resources/edit.html.erb
+  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%>
+
+<header class="page-header">
+	<div class="g">
+		<div class="g8-xs">
+			<h1 class="page-header__title">Edit Resource</h1>
+		</div>
+		<div class="g4-xs page-header__actions">
+			 <a href="/resources" class="page-button page-button--yellow" target="_blank">Preview Page</a>
+		</div>
+	</div>
+</header>
+<section class="page-section js-thing-edit" data-slug="<%= @resource.slug %>" data-id="<%= @resource.id %>">
+  <%= render partial: "admin/partials/thing_edit", locals: { 
+	  thing: @resource,
+	  path: admin_resource_url,
+	  restful_method: :put,
+	  thing_type: "Resource"
+	} %>
+</section>

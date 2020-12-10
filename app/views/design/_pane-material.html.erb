@@ -1,0 +1,79 @@
+<div class="design-menu__pane-content pane-material">
+  <br>
+  <% material_categories.each do |material_category| %>
+    <div class="design-menu__material js-material">
+      <h4 class="design-menu__material-title"><%= material_category.title %></h4>
+      <% if material_category.materials.where(is_visible: true).count > 2 %>
+        <button class="design-menu__material-prev js-material-prev"><</button>
+        <button class="design-menu__material-next js-material-next">></button>
+        <div class="design-menu__material-row js-material-row">
+          <% material_category.materials.where(is_visible: true).each do |material| %>
+              <div class="design-menu__material-swatch js-material-swatch" data-material="<%= material.excel_id %>" data-url="<%= material.tile ? ix_image_url(material.tile, { w: 256, q: 60 }) : "" %>">
+                <div class="design-menu__material-swatch-image" style="background-image: url('<%= material.tile ? ix_image_url(material.tile, { w: 256, q: 60 }) : "" %>')">
+                </div>
+                <div class="design-menu__material-swatch-title"><%= material.title %></div>
+              </div>
+          <% end %>
+        </div>
+      <% else %>
+        <% if material_category.title == "Aluminum" %>
+          <div class="design-menu__material-row">
+            <% material_category.materials.where(is_visible: true).each do |material| %>
+              <div class="design-menu__material-swatch js-material-swatch" data-material="<%= material.excel_id %>">
+                <% if material.tile %>
+                  <div class="design-menu__material-swatch-image js-display-material-swatch" style="background-image: url('<%= material.tile ? ix_image_url(material.tile, { w: 256, q: 60 }) : "" %>')" data-material="<%= material.excel_id %>">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                <% else %>
+                  <div class="design-menu__material-swatch-image js-display-material-swatch" data-material="<%= material.excel_id %>"
+                    <% if material.excel_id == "paintedAluminum" %>style="background-color: #42849C"<% end %>
+                  >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                <% end %>
+                <div class="design-menu__material-swatch-title"><%= material.title %></div>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="design-menu__material-row">
+            <% material_category.materials.where(is_visible: true).each do |material| %>
+              <div class="design-menu__material-swatch js-material-swatch" data-material="<%= material.excel_id %>" data-url="<%= material.tile ? ix_image_url(material.tile, { w: 256, q: 60 }) : "" %>">
+                <% if material.tile %>
+                  <div class="design-menu__material-swatch-image " style="background-image: url('<%= material.tile ? ix_image_url(material.tile, { w: 256, q: 60 }) : "" %>')"></div>
+                <% else %>
+                  <div class="design-menu__material-swatch-image"></div>
+                <% end %>
+                <div class="design-menu__material-swatch-title"><%= material.title %></div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+  
+  <div class="js-hardware-buttons">
+    <h2 style="margin-top: 16px;">Hardware Finish</h2>
+    <button class="design-menu__button js-hardware-button" data-type="painted">Painted</button>
+    <button class="design-menu__button js-hardware-button" data-type="anodized">Anodized</button>
+    <div class="design-menu__hardware-swatch js-hardware-color" data-material="hardware" style="float:right;">
+      <div class="design-menu__material-swatch-image design-menu__hardware-swatch-image js-hardware-swatch" style="background:#333">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+</div>

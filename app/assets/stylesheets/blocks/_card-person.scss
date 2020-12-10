@@ -1,0 +1,36 @@
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Blocks – Card Person
+// stylesheets/blocks/_card-person.scss
+//
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.card-person {
+  text-align: center;
+}
+.card-person__avatar {
+  display: block;
+}
+.card-person__image {
+  display: block;
+  width: 100%;
+  border-radius: 0.25rem;
+}
+.card-person__title {
+  font-weight: 400;
+}
+.card-person__social {
+  margin: 0.5em;
+}
+.card-person__social .icon-social {
+  width: 1em;
+  height: 1em;
+  fill: $color-gray-4;
+  transition: fill 400ms $transition;
+  @media only screen and (min-width: $screen-sm-min) {
+    width: 1.125em;
+    height: 1.125em;
+  }
+}
+.card-person__social:hover .icon-social {
+  fill: $color-yellow;
+}

@@ -1,0 +1,285 @@
+<%# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  # ImageWall Designer
+  # location: views/design/index.html.erb
+  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%>
+
+<%# Meta Tags %>
+<% content_for :metatags do %>
+  <%= render partial: "partials/head/metatags", locals: {
+    url: "https://www.imagewall.com/design",
+    title: "Design your ImageWall",
+    description: "Use our 3D interface to design, instantly price, and order your ImageWall."
+  } %>
+<% end %>
+
+<%# Design App %>
+<head>
+  <meta name="turbolinks-cache-control" content="no-cache">
+</head>
+
+
+<%# Page Content - Call to Action %>
+<section class="page-section page-section--reorder design-top">
+  <div class="g">
+    <div class="g12-xs g6-sm page-section__frame">
+      <div class="g">
+        <div class="g12-xs g11-sm">
+          <picture class="page-section__picture">
+            <img src="<%= asset_path('design/lineage-logistics.jpg') %>" class="page-section__image" alt="ImageWall Installation" />
+          </picture>
+        </div>
+      </div>
+    </div>
+    <div class="g12-xs g6-sm page-section__text">
+      <div class="g">
+        <h3 class="g12-xs page-section__subtitle">Design your own ImageWall.</h3>
+        <div class="g1-sm show-sm page-section__number"></div>
+        <div class="g12-xs g11-sm page-section__description">
+          <p>Zahner ImageWall offers custom-perforated metal panels that combine your imagination with Zahner innovation. Upload an image, select your metal and finish, and see your design instantly rendered through the patented process of Zahner ImageWall.</p>
+          <button class="contact-trigger">Get Started</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="b design-cta-bar">
+    <div class="g">
+      <div class="g12-xs g6-sm">
+        <h3>Have an idea and need help?<br>Connect with an ImageWall assistant.</h3>
+      </div>
+      <div class="g12-xs g6-sm text-sm-right">
+        <a href="tel:+1-816-423-8354"><h3>Call +1 (816) 423-8354</h3></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- <img src="http://imagewall-media.s3.amazonaws.com/f568deb0-f608-42b5-b701-0bf2fa833e22/star_blue-tileable.jpg"> -->
+
+<% if @design == nil %>
+  <%= render partial: "design/app", locals: {design_type: "none", is_owner: false, material_categories: @material_categories, design_title: "Untitled ImageWall" } %>
+  <input type="hidden" class="js-invalid-token" />
+<% elsif @design == false %>
+  <%= render partial: "design/app", locals: {design_type: "none", is_owner: false, material_categories: @material_categories, design_title: "Untitled ImageWall" } %>
+<% else %>
+  <%= render partial: "design/app", locals: {design_type: @design.type, is_owner: @is_owner, material_categories: @material_categories, design_title: @design.title } %>
+  <input type="hidden" class="js-creator-id" value="<%= @design.user_id %>">
+<% end %>
+
+<%# Page Content - Demos %>
+<section class="page-section page-section--center page-section--demos">
+  <div class="g">
+    <div class="page-section__carousel js-demo-carousel">
+      <%= render partial: "partials/card-design", collection: @demos, as: :design, cached: true %>
+    </div>
+  </div>
+</section>
+
+<%# Page Content - Process %>
+<section class="page-section page-section--reorder">
+  <div class="g">
+    <h2 class="g12-xs page-section__title">Our Process</h2>
+    <div class="g12-xs g6-sm page-section__frame">
+      <div class="g">
+        <div class="g12-xs g11-sm">
+          <%= ix_picture_tag("https://imagewall-media.s3.amazonaws.com/971f2489-c350-41c2-b93c-8fa301f0c3d0/imagewall-design-precision-manufacturing.jpg",
+            picture_tag_options: {
+              class: "page-section__picture"
+            },
+            imgix_default_options: { w: 320, h: 240, q: 60, fit: "min", sizes: "100vw", widths: [320, 640], class: "page-section__image", alt: "Our Process" },
+            breakpoints: {
+              "(min-width: 1601px)" => { sizes: "50vw", widths: [720, 1440] },
+              "(min-width: 1281px)" => { sizes: "50vw", widths: [600, 1200] },
+              "(min-width:  961px)" => { sizes: "50vw", widths: [480, 960] },
+              "(min-width:  641px)" => { sizes: "50vw", widths: [360, 720] },
+              "(min-width:  321px)" => { sizes: "100vw", widths: [640, 750, 960, 1080, 1280] }
+            }
+          ) %>
+        </div>
+      </div>
+    </div>
+    <div class="g12-xs g6-sm page-section__text">
+      <div class="g">
+        <h3 class="g12-xs page-section__subtitle">ImageWall systems are made to order using precision manufacturing and custom software.</h3>
+        <div class="g1-sm show-sm page-section__number">01</div>
+        <div class="g12-xs g11-sm page-section__description">
+          <p>The ImageWall team is powered by over 120 years of accumulated knowledge in metal research and fabrication. ImageWall systems are the ultimate in precision and quality because we control the full stack, from metal sheet forming to software algorithm design. We are constantly exploring new technologies and ideas, in the shop and in the studio, so you can continue pushing the limits of beautiful and functional design.</p>
+          <%= link_to "Meet our team", about_path, class: "page-section__button" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%# Page Content – Resources %>
+<section class="page-section page-section--center">
+  <div class="g">
+    <h2 class="g12-xs page-section__title">Get the Specs</h2>
+    <%= render partial: "partials/card-resource", collection: @resources, as: :resource, cached: true %>
+  </div>
+</section>
+
+<%# Page Content - Gallery %>
+<section class="page-section page-section--center">
+  <div class="g">
+    <h2 class="g12-xs page-section__title">Be Inspired</h2>
+    <div class="page-section__carousel js-card-carousel">
+      <%= render partial: "partials/slide-project", collection: @projects, as: :project, cached: true %>
+    </div>
+  </div>
+</section>
+
+<%# Share Design %>
+<div id="share-modal" class="modal-hide">
+  <%= render partial: "design/modals/share" %>
+</div>
+
+<%# Request Design Support %>
+<div id="support-modal" class="modal-hide">
+  <%= render partial: "design/modals/support" %>
+</div>
+
+<%# Support Request Success %>
+<div id="support-success-modal" class="modal-hide">
+ <%= render partial: "design/modals/support-success" %>
+</div>
+
+<style>
+.contact-trigger {
+    padding: 0.75em 1.5em;
+    color: #0F1010;
+    border-radius: 0.25rem;
+    border: 2px solid #0F1010;
+    font-family: "din-2014", "Helvetica Neue", Helvetica, Arial, "Microsoft YaHei New", "Microsoft Yahei", "微软雅黑", 宋体, SimSun, STXihei, "华文细黑", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.0375em;
+    -webkit-transition: all 400ms cubic-bezier(0.16, 0.68, 0.43, 0.99);
+    transition: all 400ms cubic-bezier(0.16, 0.68, 0.43, 0.99);
+}
+.contact-trigger:hover {
+    color: #FFCF44;
+    border-color: #FFCF44;
+}
+
+.contact-modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+    z-index: 1000;
+}
+.contact-modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    overflow: scroll;
+    transform: translate(-50%, -50%);
+    width: 50vw;
+    max-width: 784px;
+    max-height: 85vh;
+    border-radius: 0.5rem;
+    background-color: white;
+    padding: 1.5rem;
+}
+.contact-close-button {
+    /* float: right; */
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: lightgray;
+    color: #535858;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+}
+.contact-close-button:hover {
+    background-color: darkgray;
+    color: #0F1010;
+}
+.contact-show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+@media screen and (max-width: 1200px) {
+  .contact-modal-content {
+    width: 95vw;
+  }
+}
+</style>
+
+<div class="contact-modal">
+    <div class="contact-modal-content">
+        <span class="contact-close-button">×</span>
+        <a name="form1233776659" id="formAnchor1233776659"></a>
+        <script src="https://fs30.formsite.com/include/form/embedManager.js?1233776659"></script>
+        <script>
+            EmbedManager.embed({
+                key: "https://fs30.formsite.com/res/showFormEmbed?EParam=iGs2D6QRb6Ise_W03VleSd1WO5TBXPkYFzpUCZwnDno&1233776659",
+                width: "100%"
+            });
+            // Add your Analytics code below without the 'script' tags:
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-XXXXX-Y', 'auto');
+            // Remove this line: ga('send', 'pageview');
+            // Add the code below and replace the bolded text with your values
+            ga(function(tracker) {
+                var clientId = tracker.get('clientId');
+                var frameWindow = document.getElementById('formAnchor1233776659').contentWindow;
+                frameWindow.postMessage(clientId, 'https://fs30.formsite.com');
+            });
+        </script>
+    </div>
+</div>
+
+<script>
+  var contactModal = document.querySelector(".contact-modal");
+    var contactTrigger = document.querySelector(".contact-trigger");
+    var contactCloseButton = document.querySelector(".contact-close-button");
+
+    function toggleContactModal() {
+        contactModal.classList.toggle("contact-show-modal");
+    }
+
+    function windowOnClick(event) {
+        if (event.target === contactModal) {
+            toggleContactModal();
+        }
+    }
+
+    contactTrigger.addEventListener("click", toggleContactModal);
+    contactCloseButton.addEventListener("click", toggleContactModal);
+    window.addEventListener("click", windowOnClick);
+</script>
+
+<script>
+  var DESIGN = <%= raw @design_data.to_json %>;
+  var DEFAULT_MAP = "<%= asset_url("search/09-wave.jpg") %>";
+  var DEFAULT_TILE = "<%= asset_url("materials/solanumSteel.jpg") %>";
+  var DEFAULT_WIND = "<%= asset_url("design-wind-map.png") %>";
+  var MATERIALS = <%= raw @materials.to_json %>;
+
+  var IW = window.IW || {};
+  IW.google_key = '<%= ENV['google_key'] %>';
+
+  <% if current_user && (current_user.is_super_admin || current_user.is_sales_admin) %>
+    IW.pricingParams = <%= raw Design.attribute_list.to_json %>;
+  <% end %>
+</script>
+
+<canvas class="js-wind-canvas" style="display:none"></canvas>

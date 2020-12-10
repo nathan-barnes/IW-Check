@@ -1,0 +1,30 @@
+<%# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  # ImageWall Resources Index
+  # location: views/resources/index.html.erb
+  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%>
+
+<%# Meta Tags %>
+<% content_for :metatags do %>
+  <%= render partial: "partials/head/metatags", locals: {
+    url: "https://www.imagewall.com/resources",
+    title: "Resources — ImageWall",
+    description: "Download details, specifications, and instructions for using ImageWall in your project."
+  } %>
+<% end %>
+
+<header class="page-header">
+  <div class="g page-header__text">
+    <h1 class="g10-md g1-md-offset page-header__title">Resources</h1>
+    <p class="g10-md g1-md-offset page-header__description">Downloads, specifications, and instructions.</p>
+  </div>
+</header>
+
+<section class="page-section">
+  <div class="g">
+    <h2 class="g12-xs page-section__title">Downloads</h2>
+    <%= render partial: "partials/card-resource", collection: @resources, as: :resource, cached: true %>
+  </div>
+</section>
+
+<%= render partial: "partials/page-cta" %>

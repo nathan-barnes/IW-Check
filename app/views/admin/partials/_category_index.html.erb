@@ -1,0 +1,34 @@
+<div class="g <%= thing_pathname %>">
+  <div class="g12-xs page-section__create">
+    <div class="page-section__form">
+      <a class="page-button page-button--yellow" href="/admin/<%= thing_pathname %>/categories/new">Create A New Category</a>
+    </div>
+  </div>
+  <ul class="g12-xs page-section__list js-category-list">
+    <% categories.each do |category| %>
+      <li class="card <%= category.is_visible ? "is-published" : "is-draft" %>">
+        <div class="card__dragzone">
+          <span class="card__dragzone-circle"></span>
+          <span class="card__dragzone-circle"></span>
+          <span class="card__dragzone-circle"></span>
+          <span class="card__dragzone-circle"></span>
+          <span class="card__dragzone-circle"></span>
+          <span class="card__dragzone-circle"></span>
+        </div>
+        <h2 class="card__title">
+          <a class="card__link" href="/admin/<%= thing_pathname %>/categories/<%= category.slug %>/edit"><%= category.title %></a>
+        </h2>
+        <div class="card__actions js-action-group" value="<%= category.slug %>">
+          <button class="card__button--publish js-toggle-category-visibility">
+            <span><%= category.is_visible ? "Unpublish" : "Publish" %></span>
+          </button>
+          <% if current_user.is_super_admin %>
+            <button class="card__button--delete js-delete-category">
+              <span>Delete</span>
+            </button>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

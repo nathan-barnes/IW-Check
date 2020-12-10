@@ -1,0 +1,98 @@
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Blocks – Pages
+// stylesheets/blocks/_page.scss
+//
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.page-cta {
+	padding: 3em 0;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	border-top: 1px solid $color-gray-2;
+	@media only screen and (min-width: $screen-sm-min) {
+		margin-top: 3em;
+		padding: 6em 0;
+	}
+	// @media only screen and (min-width: $screen-md-min) {
+	// 	padding: 6em 0;
+	// }
+}
+.page-cta .g {
+	align-items: center;
+}
+.page-cta__text {
+	text-align: center;
+	@media only screen and (min-width: $screen-sm-min) {
+		text-align: left;
+	}
+}
+.page-cta__title {
+	margin: 0 0 0.25em;
+	font-size: $font-size-3 * 1px;
+	font-size: $font-size-3 / 16 * 1em;
+	font-weight: 700;
+	text-shadow: 0 0 3rem rgba(15,16,16,0.25);
+	@media only screen and (min-width: $screen-sm-min) {
+		font-size: $font-size-2 * 1px;
+		font-size: $font-size-2 / 16 * 1em;
+	}
+	@media only screen and (min-width: $screen-lg-min) {
+		font-size: $font-size-1 * 1px;
+		font-size: $font-size-1 / 16 * 1em;
+	}
+}
+.page-cta__description {
+	margin: 0;
+	font-size: $font-size-5 * 1px;
+	font-size: $font-size-5 / 16 * 1em;
+	text-shadow: 0 0 3rem rgba(15,16,16,0.25);
+	@media only screen and (min-width: $screen-lg-min) {
+		font-size: $font-size-4 * 1px;
+		font-size: $font-size-4 / 16 * 1em;
+	}
+}
+.page-cta__action {
+	text-align: center;
+	@media only screen and (min-width: $screen-sm-min) {
+		text-align: right;
+	}
+}
+.page-cta__button {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	margin-top: 1em;
+	padding: 1em 4em;
+	color: $color-white;
+	border-radius: 0.25rem;
+	background-color: $color-yellow;
+	font-size: $font-size-5 * 1px;
+	font-size: $font-size-5 / 16 * 1em;
+	font-weight: 700;
+	letter-spacing: 0.0375em;
+	@media only screen and (min-width: $screen-lg-min) {
+		font-size: $font-size-4 * 1px;
+		font-size: $font-size-4 / 16 * 1em;
+	}
+}
+.page-cta__button-background {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 25em;
+	height: 25em;
+	opacity: 0;
+	border-radius: 50%;
+	transform: translate3d(-50%, -50%, 0) scale(0);
+	background-color: darken($color-yellow, 10%);
+	transition: transform 0ms 200ms $transition, opacity 200ms $transition;
+}
+.page-cta__button:hover .page-cta__button-background {
+	opacity: 1;
+	transform: translate3d(-50%, -50%, 0) scale(1);
+	transition: transform 400ms ease-in, opacity 0ms;
+}
+.page-cta__button-title {
+	position: relative;
+}

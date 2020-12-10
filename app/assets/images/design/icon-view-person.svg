@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="28px" viewBox="0 0 18 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-view-person</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ux-03-app" transform="translate(-1361.000000, -413.000000)">
+            <g id="icon-view-person" transform="translate(1361.000000, 413.000000)">
+                <path d="M9,27.9841129 C13.9705627,27.9841129 18,28.6109761 18,21.9894086 C18,15.3678411 13.9705627,10 9,10 C4.02943725,10 0,15.3678411 0,21.9894086 C0,28.6109761 4.02943725,27.9841129 9,27.9841129 Z" id="Oval-7-Copy" fill="#E6E6E6"></path>
+                <ellipse id="Oval-7" fill="#DBDBDB" cx="9" cy="6" rx="5" ry="6"></ellipse>
+            </g>
+        </g>
+    </g>
+</svg>

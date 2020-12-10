@@ -1,0 +1,139 @@
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Blocks – Footer
+// stylesheets/blocks/_footer.scss
+//
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.footer__link {
+	display: inline-block;
+	margin-bottom: 0.75em;
+	color: $color-black;
+	font-size: $font-size-6 * 1px;
+	font-size: $font-size-6 / 16 * 1em;
+  font-weight: 700;
+  letter-spacing: 0.00625em;
+  @media only screen and (min-width: $screen-sm-min) {
+  	font-size: $font-size-5 * 1px;
+  	font-size: $font-size-5 / 16 * 1em;
+  }
+}
+.footer__link--logo {
+	display: block;
+	margin: 0;
+	font-size: $font-size-5 * 1px;
+	font-size: $font-size-5 / 16 * 1em;
+  font-weight: 700;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+  @media only screen and (min-width: $screen-sm-min) {
+  	font-size: $font-size-4 * 1px;
+  	font-size: $font-size-4 / 16 * 1em;
+  }
+}
+.footer__link--contact {
+	display: block;
+	margin-bottom: 0;
+	color: $color-gray-4;
+	font-weight: 400;
+}
+.footer__link--actions {
+	font-weight: 400;
+}
+.footer__legal {
+	margin-top: 2em;
+	color: $color-gray-4;
+	font-size: $font-size-6 * 1px;
+	font-size: $font-size-6 / 16 * 1em;
+	@media only screen and (min-width: $screen-sm-min) {
+		margin-top: 0.5em;
+		font-size: $font-size-6 * 1px;
+  	font-size: $font-size-6 / 16 * 1em;
+	}
+	@media only screen and (min-width: $screen-md-min) {
+		margin-top: 2.25em;
+	}
+}
+.footer__legal-link,
+.footer__colophon-link {
+	color: $color-gray-4;
+	text-decoration: underline;
+	transition: color 400ms $transition;
+}
+.footer__legal-link:nth-child(1),
+.footer__legal-link:nth-child(2) {
+	margin-right: 0.5em;
+}
+.footer__colophon {
+	display: block;
+	margin-top: 0.5em;
+	@media only screen and (min-width: $screen-md-min) {
+		display: inline-block;
+	}
+	@media only screen and (min-width: 1181px) {
+		margin-top: 0;
+		margin-left: 1.375em;
+	}
+	@media only screen and (min-width: $screen-lg-min) {
+		margin-left: 2em;
+	}
+}
+.footer__credit,
+.footer__copyright {
+	@media only screen and (min-width: $screen-sm-min) {
+		display: inline;
+	}
+	@media only screen and (min-width: $screen-md-min) {
+		display: inline-block;
+	}
+}
+.footer__credit a {
+	color: $color-gray-4;
+	text-decoration: underline;
+	transition: color 400ms $transition;
+}
+.footer__credit a:hover {
+	color: $color-black;
+}
+.footer__title {
+	margin-top: 1.5em;
+	margin-bottom: 0.75em;
+	font-size: $font-size-6 / 16 * 1em;
+	@media only screen and (min-width: $screen-sm-min) {
+  	margin-top: 0;
+  	font-size: $font-size-5 / 16 * 1em;
+  }
+}
+.footer__social {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	margin-top: 1em;
+	margin-right: 0.75em;
+	@media only screen and (min-width: $screen-sm-min) {
+		display: block;
+		margin-top: 0;
+		margin-bottom: 1em;
+	}
+	@media only screen and (min-width: $screen-md-min) {
+		display: inline-block;
+		width: 1.125em;
+		height: 1.125em;
+		margin-bottom: 0;
+	}
+	@media only screen and (min-width: $screen-lg-min) {
+		margin-right: 1em;
+	}
+}
+.footer__social .icon-social {
+	width: 1em;
+	height: 1em;
+	fill: $color-gray-4;
+	transition: fill 400ms $transition;
+	@media only screen and (min-width: $screen-md-min) {
+		width: 1.125em;
+		height: 1.125em;
+	}
+}
+.footer__social:hover .icon-social {
+	fill: $color-yellow;
+}

@@ -1,0 +1,28 @@
+<%# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  # Metatags
+  # location: views/partials/head/_metatags.html.erb
+  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%>
+
+<%# Metadata %>
+<link rel="canonical" href="<%= url %>">
+<title><%= title %></title>
+<meta name="title" content="<%= title %>">
+<meta name="description" content="<%= description %>">
+<%# Facebook %>
+<meta property="og:site_name" content="ImageWall">
+<meta property="og:type" content="website">
+<meta property="og:url" content="<%= url %>">
+<meta property="og:title" content="<%= title %>">
+<meta property="og:image" content="<%= local_assigns[:image].nil? ? ix_image_url("https://imagewall-media.s3.amazonaws.com/725c6484-d8cd-4abf-9828-c7d94b4fa6af/imagewall-design-and-order-custom-perforated-metal.png", { w: 1920}) : ix_image_url(image, { w: 1920 }) %>">
+<meta property="og:description" content="<%= description %>">
+<%# Twitter %>
+<!-- <meta name="twitter:site" content="@"> -->
+<meta name="twitter:domain" content="imagewall.com">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="<%= url %>">
+<meta name="twitter:title" content="<%= title %>">
+<meta name="twitter:image" content="<%= local_assigns[:image].nil? ? ix_image_url("https://imagewall-media.s3.amazonaws.com/725c6484-d8cd-4abf-9828-c7d94b4fa6af/imagewall-design-and-order-custom-perforated-metal.png", { w: 1920}) : ix_image_url(image, { w: 1920 }) %>">
+<meta name="twitter:description" content="<%= description %>">
+<%# Pinterest %>
+<meta name="p:domain_verify" content="dae570bb3808448c967ff932f0d1e950"/>

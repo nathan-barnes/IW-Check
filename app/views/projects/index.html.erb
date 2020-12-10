@@ -1,0 +1,31 @@
+<%# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  # ImageWall Features Index
+  # location: views/features/index.html.erb
+  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%>
+
+<%# Meta Tags %>
+<% content_for :metatags do %>
+  <%= render partial: "partials/head/metatags", locals: {
+    url: "https://www.imagewall.com/gallery",
+    title: "Gallery — ImageWall",
+    description: "Browse a selection of completed projects."
+  } %>
+<% end %>
+
+<header class="page-header">
+  <div class="g page-header__text">
+    <h1 class="g12-xs g10-md g1-md-offset page-header__title">Gallery</h1>
+    <p class="g12-xs g10-md g1-md-offset page-header__description">See what others have created with ImageWall.</p>
+  </div>
+</header>
+<section class="page-section page-section--center">
+  <div class="g">
+    <h2 class="g12-xs page-section__title">Projects</h2>
+    <%= render partial: "partials/card-project", collection: @projects, as: :project, cached: true %>
+  </div>
+</section>
+
+<div id="project-modal" class="modal-hide"></div>
+
+<%= render partial: "partials/page-cta" %>
