@@ -1,4 +1,0 @@
-# ImageWall
-
-User-agent: *
-Sitemap: https://www.imagewall.com/sitemap.xml
