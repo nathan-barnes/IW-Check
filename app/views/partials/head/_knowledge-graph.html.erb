@@ -1,0 +1,29 @@
+<script type="application/ld+json">
+{ "@context" : "https://schema.org",
+  "@type" : "WebSite",
+  "url" : "https://www.imagewall.com",
+  "name" : "ImageWall",
+  "image" : "<%# @website.metadatum.image %>",
+  "description" : "<%# @website.metadatum.description.html_safe %>",
+  "sameAs" : [
+    "https://www.instagram.com/imagewall_team",
+    "https://www.facebook.com/imagewallteam",
+    "https://www.pinterest.com/imagewall"
+  ],
+  "copyrightYear" : "<%= Time.now.year %>",
+  "copyrightHolder" : [
+    { "@type" : "Organization",
+      "url" : "https://www.azahner.com",
+      "name" : "A. Zahner Company",
+      "logo" : "",
+      "contactPoint" : [
+        { "@type" : "ContactPoint",
+          "url" : "https://www.azahner.com",
+          "email" : "hello@azahner.com",
+          "contactType" : "customer service"
+        }
+      ]
+    }
+  ]
+}
+</script>

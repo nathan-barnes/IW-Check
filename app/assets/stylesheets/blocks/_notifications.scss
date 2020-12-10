@@ -1,0 +1,39 @@
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Blocks – Notifications
+// stylesheets/blocks/_notifications.scss
+//
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+.notification {
+	// pointer-events: none;
+  position: absolute;
+  top: 0.5em;
+  left: 0;
+  right: 0;
+  width: 20rem;
+  margin: 0 auto;
+  padding: 1em;
+  // z-index: -1;
+  opacity: 0;
+  background-color: $color-yellow;
+  text-align: center;
+  border-radius: 0.25rem;
+  transform: translateY(-150%);
+  animation: notify 3s;
+}
+.notification__message {
+	color: $color-white;
+	font-size: $font-size-5 * 1px;
+	font-size: $font-size-5 / 16 * 1em;
+	font-weight: 700;
+	line-height: 1;
+	letter-spacing: 0.075em;
+	text-transform: uppercase;
+}
+@keyframes notify {
+	0% { transform: translateY(-150%); opacity: 0; }
+	16.66667% { transform: translateY(0); opacity: 1; }
+	83.33333% { transform: translateY(0); opacity: 1; }
+	100% { transform: translateY(-150%); opacity: 0; }
+}

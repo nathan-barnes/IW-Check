@@ -1,0 +1,85 @@
+<%# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  # ImageWall – Project
+  # location: views/partials/_project.html.erb
+  #
+  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%>
+
+<article class="g project <% if modal %>project--modal<% end %> js-project" itemscope itemtype="https://schema.org/CreativeWork">
+  <% cache ["project", project] do %>
+    <%# Project Carousel %>
+    <header class="g12-xs project-carousel <% if modal %>project-carousel--modal<% end %> js-image-carousel">
+      <% project.media.each do |image| %>
+        <% if image.url? %>
+          <figure class="project-carousel__slide js-image-slide" itemsprop="image" itemscope itemtype="https://schema.org/ImageObject">
+            <%= ix_image_tag(image.url, { q: 60, fit: "min", sizes: "100vw", widths: [320, 640, 750, 960, 1080, 1280, 1440, 1600], class: "project-carousel__image" }) %>
+          </figure>
+        <% end %>
+      <% end %>
+    </header>
+    <section class="g12-xs g6-sm project-text">
+      <div class="g">
+        <h1 class="g12-xs project-text__title"><%= project.title if project.title? %></h1>
+        <div class="g1-sm show-sm project-text__year"><%= project.year if project.year? %></div>
+        <div class="g12-xs g11-sm project-text__description">
+          <p><%= project.description if project.description? %></p>
+        </div>
+      </div>
+    </section>
+    <section class="g12-xs g6-sm g5-md g1-md-offset project-data">
+      <div class="g">
+        <% if project.location? %>
+          <div class="g6-xs g5-lg">
+            <h4 class="project-data__title">Location</h4>
+            <p class="project-data__description"><%= project.location %></p>
+          </div>
+        <% end %>
+        <% if project.categories.any? %>
+          <div class="g6-xs g5-lg">
+            <h4 class="project-data__title">Application</h4>
+            <p class="project-data__description">
+              <% project.categories.each_with_index do |category, index| %>
+                <% if project.categories.length > 1 %>
+                  <%= category.title %><% if index != project.categories.length - 1 %>,<% end %>
+                <% else %>
+                  <%= category.title %>
+                <% end %>
+              <% end %>
+            </p>
+          </div>
+        <% end %>
+        <% if project.material %>
+          <div class="g6-xs g5-lg">
+            <h4 class="project-data__title">Material</h4>
+            <p class="project-data__description"><%= project.material.title %></p>
+          </div>
+        <% end %>
+        <% if project.designer? %>
+          <div class="g6-xs g5-lg">
+            <h4 class="project-data__title">Designer</h4>
+            <p class="project-data__description"><%= project.designer %></p>
+          </div>
+        <% end %>
+      </div>
+    </section>
+  <% end %>
+
+  <%# More projects carousel (show page only) %>
+  <% unless modal %>
+    <footer class="g12-xs project-gallery">
+      <h2 class="project-gallery__title">Related Projects</h2>
+      <div class="project-gallery__carousel js-card-carousel">
+        <%= render partial: "partials/slide-project", collection: @related_projects, as: :project, cached: true %>
+      </div>
+      <div class="project-gallery__button">
+        <%= link_to "See all projects", gallery_path, class: "page-section__button" %>
+      </div>
+    </footer>
+  <% end %>
+</article>
+
+<%# Page CTA (show page only) %>
+<% unless modal %>
+  <%= render partial: "partials/page-cta" %>
+<% end %>
+

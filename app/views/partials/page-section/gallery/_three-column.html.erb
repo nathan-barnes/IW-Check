@@ -1,0 +1,13 @@
+<section class="page-section g">
+  <div class="g12-xs">
+    <h3 class="page-section__title"><%= title %></h3>
+  </div>
+  <% things.each do |thing| %>
+    <div class="g6-xs g4-lg">
+      <!-- 410x380 -->
+      <a href="/gallery/<%= thing.id %>">
+        <img src="<%= thing.media.first.url %>" />
+      </a>
+    </div>
+  <% end %>
+</section>

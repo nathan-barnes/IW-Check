@@ -1,0 +1,112 @@
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Admin > Blocks > Cards
+// stylesheets/admin/_cards.scss
+//
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+.card {
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	margin: 0.5em 0;
+	padding: 0.5em 1em;
+	border-radius: 0.25rem;
+	border: 1px solid $color-gray-2;
+	background-color: $color-white;
+	transition: all 200ms $transition;
+}
+.card.is-draft {
+	border-style: dashed;
+	background-color: transparent;
+}
+.card:hover {
+	box-shadow: 0 0 1rem 0.25rem rgba(15, 15, 16, 0.0625);
+}
+.card.is-draft:hover {
+	box-shadow: none;
+}
+.card__dragzone {
+	position: relative;
+	flex: 0 1 1.25em;
+	cursor: grab;
+}
+.card__dragzone-circle {
+	position: relative;
+	display: block;
+	float: left;
+	width: 0.375em;
+	height: 0.375em;
+	margin: 0.125em;
+	border-radius: 50%;
+	background-color: $color-gray-3;
+}
+.card.is-draft .card__dragzone-circle {
+	background-color: $color-gray-2;
+}
+.card.is-published .card__dragzone-circle {
+	background-color: $color-gray-3;
+}
+.card__title {
+	flex: 1 1 75%;
+	margin: 0.5em 1rem;
+	font-size: $font-size-4 * 1px;
+	font-size: $font-size-4 / 16 * 1em;
+	font-weight: 700;
+	line-height: 1.25;
+	letter-spacing: 0.0375em;
+	text-transform: none;
+	@media only screen and (min-width: $screen-sm-min) {
+		font-size: $font-size-4 * 1px;
+		font-size: $font-size-4 / 16 * 1em;
+	}
+}
+.card__link {
+	color: $color-black;
+	display: inline-block;
+	margin-right: 1rem;
+}
+.card.is-draft .card__link {
+	color: $color-gray-3;
+}
+.card.is-published .card__link {
+	color: $color-black;
+}
+.card__category {
+	color: $color-gray-3;
+	display: inline-block;
+	vertical-align: middle;
+	font-size: $font-size-6 * 1px;
+	font-size: $font-size-6 / 16 * 1rem;
+	font-weight: 400;
+	letter-spacing: 0.0375em;
+	text-transform: uppercase;
+}
+.card__actions {
+	flex: 0 1 20%;
+	text-align: right;
+}
+.card__button--delete,
+.card__button--publish {
+	padding: 0.5em 1em;
+	border: none;
+	border-radius: 0.25rem;
+	background-color: $color-gray-2;
+}
+.card__button--publish {
+	margin-right: 0.5rem;
+}
+.card__button--delete:focus,
+.card__button--publish:focus {
+	outline: none;
+}
+.card__button--delete span,
+.card__button--publish span {
+	pointer-events: none;
+}
+
+
+.js-media-container img {
+	width: 200px;
+}

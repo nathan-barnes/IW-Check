@@ -1,0 +1,193 @@
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Admin > Blocks > Pages
+// stylesheets/admin/_pages.scss
+//
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// All Pages
+.page-header {
+	padding-top: 6.75rem;
+	padding-bottom: 3.75rem;
+}
+.page-header__actions {
+	text-align: right;
+}
+.page-header__title {
+	margin: 0;
+}
+.page-header__link {
+	color: $color-black;
+	margin: 0.5rem 1rem 0 0;
+	padding: 0;
+	border: none;
+	border-bottom: 1px solid $color-gray-4;
+	background-color: transparent;
+	transition: all 200ms $transition;
+}
+.page-header__link:hover {
+	color: $color-yellow;
+	border-color: $color-yellow;
+}
+.page-header__link:focus {
+	outline: none;
+}
+
+.page-section {
+	padding: 2.5em 0 3em;
+	border-top: 1px solid $color-gray-2;
+	background-color: $color-gray-1;
+}
+.page-section__create {
+	margin-bottom: 2em;
+}
+.page-section__form {
+	display: flex;
+	align-items: center;
+}
+.page-section__label {
+	margin-right: 1em;
+}
+.page-section__input {
+	padding: 0.5em 1em;
+	border-top-left-radius: 0.25rem;
+	border-bottom-left-radius: 0.25rem;
+	border: 1px solid $color-gray-2;
+	border-right: none;
+}
+.page-section__input:focus {
+	outline: none;
+	border-color: $color-yellow;
+}
+.page-section__submit {
+	color: $color-white;
+	margin: 0 1rem 0 0;
+	padding: 0.5em 1em;
+	border-top-right-radius: 0.25rem;
+	border-bottom-right-radius: 0.25rem;
+	border: 1px solid $color-yellow;
+	background-color: $color-yellow;
+}
+.page-button {
+	padding: 0.5rem 1rem;
+	border-radius: 0.25rem;
+	transition: all 200ms $transition;
+}
+.page-button--gray {
+	color: $color-black;
+	border: 1px solid $color-gray-2;
+	background-color: $color-gray-2;
+}
+.page-button--gray:hover {
+	color: $color-white;
+	border-color: $color-black;
+	background-color: $color-black;
+}
+.page-button--yellow {
+	color: $color-white;
+	border: 1px solid $color-yellow;
+	background-color: $color-yellow;
+}
+.page-button--yellow:hover {
+	color: $color-white;
+	border-color: $color-black;
+	background-color: $color-black;
+}
+.page-pagination {
+	margin: 1rem 0;
+	text-align: center;
+}
+
+// Edit pages
+.page-edit__label {
+	display: block;
+	margin-right: 1em;
+	margin-bottom: 0.5rem;
+}
+.page-edit__input,
+.page-edit__textarea {
+	width: 100%;
+	resize: none;
+	padding: 0.5em 1em;
+	border-radius: 0.25rem;
+	border: 1px solid $color-gray-2;
+}
+.page-edit__input {
+	margin-bottom: 1rem;
+}
+.page-edit__input:focus,
+.page-edit__textarea:focus {
+	outline: none;
+	border-color: $color-yellow;
+}
+.page-edit__submit {
+	margin-top: 2rem;
+	text-align: center;
+}
+.page-edit__image {
+	display: block;
+	width: 100%;
+	margin-bottom: 1rem;
+}
+.page-edit__list {
+	display: block;
+}
+.page-edit__item {
+	float: left;
+	margin-right: 1rem;
+	margin-bottom: 1rem;
+}
+.page-edit__category {
+	color: $color-gray-3;
+	padding: 0.5rem 1rem;
+	border-radius: 0.25rem;
+	border: 2px solid $color-gray-3;
+	background-color: transparent;
+	font-size: $font-size-4 * 1px;
+	font-size: $font-size-4 / 16 * 1rem;
+	font-weight: 400;
+	letter-spacing: 0.00625em;
+	transition: all 200ms $transition;
+}
+.page-edit__category.is-active {
+	color: $color-white;
+	background-color: $color-gray-3;
+}
+.page-edit__category:focus {
+	outline: none;
+}
+.page-edit__select {
+	width: 100%;
+	height: 2.375rem;
+	margin-bottom: 1rem;
+	background-color: $color-white;
+	border-radius: 0.25rem;
+	border: 1px solid $color-gray-2;
+}
+.page-edit__medium {
+	float: left;
+	width: 16.66667%;
+  max-width: 16.66667%;
+  padding-left: $grid-gutter;
+  padding-right: $grid-gutter;
+}
+.page-edit__medium--new input {
+	width: 100%;
+}
+.page-edit__filename {
+	display: inline-block;
+	margin-bottom: 1rem;
+	color: $color-gray-4;
+	font-size: $font-size-4 * 1px;
+	font-size: $font-size-4 / 16 * 1rem;
+	font-weight: 400;
+	letter-spacing: 0.00625em;
+}
+.page-edit__text {
+	display: inline-block;
+	margin: 0;
+	color: $color-gray-4;
+	font-size: $font-size-4 * 1px;
+	font-size: $font-size-4 / 16 * 1rem;
+	font-weight: 400;
+	letter-spacing: 0.00625em;
+}

@@ -1,0 +1,20 @@
+<%# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  # ImageWall – Page CTA
+  # location: views/partials/_page-cta.html.erb
+  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%>
+
+<section class="page-cta" style="background-image: url(<%= asset_path('imagewall-build-your-own.png') %>)">
+  <div class="g">
+    <div class="g12-xs g7-sm g5-md g1-md-offset page-cta__text">
+      <h3 class="page-cta__title">Build your own ImageWall</h3>
+      <p class="page-cta__description">Try our intuitive designer, no signup required!</p>
+    </div>
+    <div class="g12-xs g5-sm page-cta__action">
+      <%= link_to design_index_path, class: "page-cta__button", title: "Start your design", data: {turbolinks: false} do %>
+        <div class="page-cta__button-background"></div>
+        <span class="page-cta__button-title">Start your design</span>
+      <% end %>
+    </div>
+  </div>
+</section>

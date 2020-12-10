@@ -1,0 +1,39 @@
+<%# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  # ImageWall – Resource Card
+  # location: views/partials/card-resource.html.erb
+  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%>
+
+<% cache ["card-resource", resource] do %>
+	<article class="g6-xs g3-sm card card-resource" itemscope itemtype="https://schema.org/CreativeWork">
+		<a href="<%= resource.file %>" target="_blank" class="card-resource__link" download="true">
+			<figure class="card-resource__frame" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+		  	<% if resource.image? %>
+					<%= ix_picture_tag(resource.image,
+						picture_tag_options: {
+							class: "card-resource__picture"
+						},
+					  imgix_default_options: { w: 320, h: 240, q: 60, fit: "min", sizes: "100vw", widths: [320, 640], alt: resource.title, class: "card-resource__image" },
+					  breakpoints: {
+					  	"(min-width: 1601px)" => { sizes: "25vw", widths: [360, 720] },
+					  	"(min-width: 1281px)" => { sizes: "25vw", widths: [300, 600] },
+					  	"(min-width:  961px)" => { sizes: "25vw", widths: [240, 480] },
+					    "(min-width:  641px)" => { sizes: "50vw", widths: [480, 960] },
+		          "(min-width:  321px)" => { sizes: "100vw", widths: [640, 750, 960, 1080, 1280] }
+					  }
+					) %>
+		  	<% else %>
+		  		<picture><img></picture>
+		  	<% end %>
+		  </figure>
+		  <% if resource.file? %>
+		  	<div class="card-resource__type"><%= resource.file.split(".").last %></div>
+		  <% end %>
+			<div class="card-resource__text">
+				<h3 class="card-resource__title" itemprop="name"><%= resource.title if resource.title? %></h3>
+				<p class="card-resource__description"><%= resource.subtitle if resource.subtitle? %></p>
+				<button class="card-resource__button">Download</button>
+			</div>
+		</a>
+	</article>
+<% end %>

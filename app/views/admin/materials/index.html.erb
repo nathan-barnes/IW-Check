@@ -1,0 +1,27 @@
+<%# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  # ImageWall Admin — Materials Index
+  # location: views/admin/materials/index.html.erb
+  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%>
+
+<header class="page-header">
+	<div class="g">
+		<div class="g8-xs">
+			<h1 class="page-header__title">Materials</h1>
+		</div>
+		<div class="g4-xs page-header__actions">
+			 <a href="/materials" class="page-button page-button--yellow" target="_blank">Preview Page</a>
+		</div>
+		<div class="g12-xs">
+			<button class="page-header__link js-get-things-index" value="materials">Edit Materials</button>
+			<button class="page-header__link js-get-categories-index" value="materials">Edit Categories</button>
+		</div>
+	</div>
+</header>
+<section class="page-section js-thing-category-index">
+  <%= render partial: "admin/partials/thing_category_index", locals: { 
+    things: @materials,
+    pathname: "materials",
+    thing_type: "Material"
+  } %>
+</section>

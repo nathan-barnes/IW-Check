@@ -1,0 +1,66 @@
+<%# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  # Footer
+  # location: views/partials/_footer.html.erb
+  #
+  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%>
+
+<div class="g footer">
+  <div class="g6-xs g3-sm g2-md footer__logo">
+    <%= link_to "ImageWall", root_path, class: "footer__link footer__link--logo" %>
+  </div>
+  <ul class="g3-xs g2-sm g1-md footer__list">
+    <li class="footer__item">
+      <%= link_to "Design", "/design", class: "footer__link" %>
+    </li>
+    <% ["Features", "Materials", "Gallery"].each do |section| %>
+      <li class="footer__item">
+        <%= link_to section, "/#{section.downcase}", class: "footer__link" %>
+      </li>
+    <% end %>
+  </ul>
+  <ul class="g3-xs g1-sm footer__list">
+    <% ["About", "Contact", "Resources"].each do |section| %>
+      <li class="footer__item">
+        <%= link_to section, "/#{section.downcase}", class: "footer__link" %>
+      </li>
+    <% end %>
+  </ul>
+  <div class="g12-xs g5-sm g1-sm-offset g7-md g1-md-offset footer__contact">
+    <div class="g">
+      <div class="g6-xs g8-sm g4-md">
+        <h5 class="footer__title">Contact Us</h5>
+        <%= link_to "+1 816-423-8354", "tel:1-816-423-8354", class: "footer__link footer__link--contact" %>
+        <%= link_to "team@imagewall.com", "mailto:team@imagewall.com", class: "footer__link footer__link--contact" %>
+      </div>
+      <div class="g6-xs g4-sm g4-md">
+        <h5 class="hide-sm show-md footer__title">Follow Us</h5>
+        <%= link_to "https://www.facebook.com/imagewallteam", class: "footer__social", title: "Follow ImageWall on Facebook", target: "_blank" do %>
+          <%= render "partials/icons/facebook" %>
+        <% end %>
+        <%= link_to "https://www.instagram.com/imagewall_team", class: "footer__social", title: "Follow ImageWall on Instagram", target: "_blank" do %>
+          <%= render "partials/icons/instagram" %>
+        <% end %>
+        <%= link_to "https://www.pinterest.com/imagewall", class: "footer__social", title: "Follow ImageWall on Pinterest", target: "_blank" do %>
+          <%= render "partials/icons/pinterest" %>
+        <% end %>
+      </div>
+      <ul class="g1-sm g2-md g2-md-offset show-md footer__list">
+        <% ["Login", "Signup"].each do |section| %>
+          <li class="footer__item">
+            <%= link_to section, "/#{section.downcase}", class: "footer__link footer__link--actions" %>
+          </li>
+        <% end %>
+      </ul>
+      <div class="g12-xs footer__legal">
+        <%= link_to "Terms of Use", "/terms-of-use", class: "footer__legal-link" %>
+        <%= link_to "Terms of Sale", "/terms-of-sale", class: "footer__legal-link" %>
+        <%= link_to "Privacy Policy", "/privacy-policy", class: "footer__legal-link" %>
+        <span class="footer__colophon">
+          <span class="footer__copyright">&copy; 2014 — <%= Time.now.year %> <a class="footer__legal-link" href="http://www.azahner.com">A. Zahner Company</a> – All Rights Reserved. </span>
+          <span class="footer__credit">Design by <%= link_to "Dixon & Moe", "https://dixonandmoe.com", class: "footer__colophon-link", title: "Dixon & Moe — Digital Product Design", target: "_blank" %></span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

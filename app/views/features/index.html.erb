@@ -1,0 +1,31 @@
+<%# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  # ImageWall Features Index
+  # location: views/features/index.html.erb
+  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%>
+
+<%# Meta Tags %>
+<% content_for :metatags do %>
+  <%= render partial: "partials/head/metatags", locals: {
+    url: "https://www.imagewall.com/features",
+    title: "Features — ImageWall",
+    description: "Discover more about ImageWall. Learn about what makes ImageWall unique and where we are headed next."
+  } %>
+<% end %>
+
+<header class="page-header">
+  <div class="g page-header__text">
+    <h1 class="g12-xs g10-md g1-md-offset page-header__title">Features</h1>
+    <p class="g12-xs g10-md g1-md-offset page-header__description">Discover more about ImageWall.</p>
+  </div>
+</header>
+
+<% @features.each_with_index do |feature, index| %>
+  <% if index.even? %>
+    <%= render partial: "partials/page-section--left", locals: { section: feature, index: index } %>
+  <% else %>
+    <%= render partial: "partials/page-section--right", locals: { section: feature, index: index } %>
+  <% end %>
+<% end %>
+
+<%= render partial: "partials/page-cta" %>

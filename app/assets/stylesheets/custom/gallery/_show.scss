@@ -1,0 +1,134 @@
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Custom – Gallery (Projects) Show
+// stylesheets/custom/gallery/_show.scss
+//
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.project {
+  margin-top: 4.75em;
+}
+.project--modal {
+  margin-top: 0;
+}
+
+.project-carousel__slide {
+  height: 10em;
+  @media only screen and (min-width: $screen-sm-min) {
+    height: 18.75em;  // 300
+  }
+  @media only screen and (min-width: $screen-md-min) {
+    height: 22.5em;  // 360
+  }
+  @media only screen and (min-width: $screen-lg-min) {
+    height: 26.25em; // 420
+  }
+  @media only screen and (min-width: $screen-xl-min) {
+    height: 30em;    // 480
+  }
+}
+.project-carousel__slide img {
+  position: relative;
+  display: block;
+  height: 100%;
+  margin-right: 1em;
+}
+
+.project-text,
+.project-data {
+
+  @media only screen and (min-width: $screen-sm-min) {
+    margin-top: 2em;
+  }
+}
+.project-text__title {
+  margin-top: 0;
+  font-size: $font-size-2 * 1px;
+  font-size: $font-size-2 / 16 * 1em;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0.00625em;
+  @media only screen and (min-width: $screen-md-min) {
+    margin-bottom: 2rem;
+    font-size: $font-size-1 * 1px;
+    font-size: $font-size-1 / 16 * 1em;
+  }
+}
+.project-text__year {
+  font-size: $font-size-6 * 1px;
+  font-size: $font-size-6 / 16 * 1em;
+  font-weight: 400;
+  line-height: 3;
+  letter-spacing: 0.125em;
+}
+.project-text__description p {
+  margin: 0;
+}
+
+.project-data__title {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: $font-size-5 * 1px;
+  font-size: $font-size-5 / 16 * 1em;
+  font-weight: 700;
+  letter-spacing: 0.125em;
+  text-transform: uppercase;
+}
+.project-data__description {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+.project-gallery {
+  margin: 3em 0;
+}
+.project-gallery__title {
+  margin: 3em 0 1em;
+  text-align: center;
+  @media only screen and (min-width: $screen-sm-min) {
+    margin: 6em 0 3em;
+  }
+}
+.project-gallery__button {
+  margin-top: 1.5em;
+  text-align: center;
+  @media only screen and (min-width: $screen-sm-min) {
+    margin-top: 3em;
+  }
+}
+
+
+/* ---- previous/next buttons ---- */
+.flickity-prev-next-button {
+    position: absolute;
+    top: 50%;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: transparent !important;
+    background: transparent !important;
+    cursor: pointer;
+    /* vertically center */
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.flickity-prev-next-button:hover {
+    background: transparent;
+}
+
+.flickity-prev-next-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 5px #09F;
+}
+
+.flickity-prev-next-button:active {
+    opacity: 0.6;
+}
+
+.flickity-prev-next-button.previous {
+    left: 10px;
+}
+
+.flickity-prev-next-button.next {
+    right: 10px;
+}

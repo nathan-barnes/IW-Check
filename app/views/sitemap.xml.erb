@@ -1,0 +1,67 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+	<%# Website %>
+	<url>
+		<loc><%= @domain %></loc>
+		<changefreq>daily</changefreq>
+		<priority>1.0</priority>
+		<lastmod><%= Time.now.strftime("%F") %></lastmod>
+	</url>
+	<%# Designs Index %>
+	<url>
+		<loc><%= @domain %>/design</loc>
+		<changefreq>weekly</changefreq>
+		<priority>0.75</priority>
+		<lastmod><%= Design.where(type: "demo").last.updated_at.strftime("%F") %></lastmod>
+	</url>
+	<%# Features Index %>
+	<url>
+		<loc><%= @domain %>/features</loc>
+		<changefreq>weekly</changefreq>
+		<priority>0.75</priority>
+		<lastmod><%= Feature.reorder(updated_at: :desc).first.updated_at.strftime("%F") %></lastmod>
+	</url>
+	<%# Materials Index %>
+	<url>
+		<loc><%= @domain %>/materials</loc>
+		<changefreq>weekly</changefreq>
+		<priority>0.75</priority>
+		<lastmod><%= Material.reorder(updated_at: :desc).first.updated_at.strftime("%F") %></lastmod>
+	</url>
+	<%# Gallery Index %>
+	<url>
+		<loc><%= @domain %>/gallery</loc>
+		<changefreq>weekly</changefreq>
+		<priority>0.75</priority>
+		<lastmod><%= Project.reorder(updated_at: :desc).first.updated_at.strftime("%F") %></lastmod>
+	</url>
+	<%# Gallery Show %>
+	<% @projects.each do |project| %>
+	<url>
+		<loc><%= @domain %>/gallery/<%= project.slug %></loc>
+		<changefreq>weekly</changefreq>
+		<priority>0.5</priority>
+		<lastmod><%= project.updated_at.strftime("%F") %></lastmod>
+	</url>
+	<% end %>
+	<%# About %>
+	<url>
+		<loc><%= @domain %>/about</loc>
+		<changefreq>weekly</changefreq>
+		<priority>0.5</priority>
+		<lastmod><%= Time.now.strftime("%F") %></lastmod>
+	</url>
+	<%# Contact %>
+	<url>
+		<loc><%= @domain %>/contact</loc>
+		<changefreq>weekly</changefreq>
+		<priority>0.75</priority>
+		<lastmod><%= Time.now.strftime("%F") %></lastmod>
+	</url>
+	<%# Resources %>
+	<url>
+		<loc><%= @domain %>/resources</loc>
+		<changefreq>weekly</changefreq>
+		<priority>0.5</priority>
+		<lastmod><%= Time.now.strftime("%F") %></lastmod>
+	</url>
+</urlset>
