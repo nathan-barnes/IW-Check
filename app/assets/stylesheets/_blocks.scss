@@ -1,0 +1,26 @@
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Application > Blocks CSS Manifest
+// stylesheets/_blocks.scss
+//
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+@import "blocks/typography";
+@import "blocks/body";
+@import "blocks/grid";
+@import "blocks/grid-helpers";
+@import "blocks/menu-desktop";
+@import "blocks/menu-mobile";
+@import "blocks/modal";
+@import "blocks/page-cta";
+@import "blocks/page-form";
+@import "blocks/page-legal";
+@import "blocks/page-header";
+@import "blocks/page-section";
+@import "blocks/card-design";
+@import "blocks/card-person";
+@import "blocks/card-project";
+@import "blocks/card-material";
+@import "blocks/card-resource";
+@import "blocks/card-testimonial";
+@import "blocks/footer";
+@import "blocks/notifications";

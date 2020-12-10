@@ -1,0 +1,45 @@
+<%# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  # ImageWall – Page Left
+# location: views/partials/_page-section--left.html.erb
+  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%>
+
+<section class="page-section page-section--left page-section--reorder">
+  <div class="g">
+    <h2 class="g12-xs page-section__title"><%= section.title if section.title? %></h2>
+    <div class="g12-xs g6-sm page-section__text">
+      <div class="g">
+        <h3 class="g12-xs page-section__subtitle"><%= section.subtitle if section.subtitle? %></h3>
+        <div class="g1-sm show-sm page-section__number">0<%= index + 1 %></div>
+        <div class="g12-xs g11-sm page-section__description">
+          <% if section.description? %>
+            <p><%= sanitize section.description, tags: %w(strong em a), attributes: %w(href class) %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="g12-xs g5-sm g1-sm-offset page-section__frame">
+      <% if section.image? %>
+        <% if section.image.split(".").last == "gif" %>
+          <picture class="page-section__picture">
+            <%= image_tag(section.image, class: "page-section__image", style: "width: 100%; height: auto;", alt: section.title) %>
+          </picture>
+        <% else %>
+          <%= ix_picture_tag(section.image,
+            picture_tag_options: {
+              class: "page-section__picture"
+            },
+            imgix_default_options: { w: 320, h: 240, q: 60, fit: "min", sizes: "100vw", widths: [320, 640], class: "page-section__image", alt: section.title },
+            breakpoints: {
+              "(min-width: 1601px)" => { sizes: "50vw", widths: [720, 1440] },
+              "(min-width: 1281px)" => { sizes: "50vw", widths: [600, 1200] },
+              "(min-width:  961px)" => { sizes: "50vw", widths: [480, 960] },
+              "(min-width:  641px)" => { sizes: "50vw", widths: [360, 720] },
+              "(min-width:  321px)" => { sizes: "100vw", widths: [640, 750, 960, 1080, 1280] }
+            }
+          ) %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</section>

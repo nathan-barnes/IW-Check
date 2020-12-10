@@ -1,0 +1,61 @@
+<%# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  # Admin — Users Edit
+  # location: views/admin/users/edit.html.erb
+  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%>
+
+<header class="page-header">
+  <div class="g">
+    <div class="g8-xs">
+      <h1 class="page-header__title">User Info</h1>
+    </div>
+  </div>
+</header>
+<section class="page-section js-user-edit">
+  <div class="g">
+    <div class="g4-xs">
+      <label class="page-edit__label">Email</label>
+      <p class="page-edit__text"><%= @user.email %></p>
+    </div>
+    <div class="g2-xs">
+      <label class="page-edit__label">User Since</label>
+      <p class="page-edit__text"><%= @user.created_at.strftime("%d %b, %Y") if @user.created_at %></p>
+    </div>
+    <div class="g2-xs">
+      <label class="page-edit__label">Last Sign In</label>
+      <% if @user.last_sign_in_at %>
+        <p class="page-edit__text"><%= @user.last_sign_in_at.strftime("%d %b, %Y") %></p>
+      <% else %>
+        <p class="page-edit__text">Never signed in</p>
+      <% end %>
+    </div>
+    <% if current_user.is_super_admin %>
+      <div class="g4-xs">
+        <label class="page-edit__label">Permissions</label>
+        <%= render partial: "/admin/partials/sales_admin_toggle", locals: {user: @user} %>
+        <%= render partial: "/admin/partials/marketing_admin_toggle", locals: {user: @user} %>
+        <%= render partial: "/admin/partials/super_admin_toggle", locals: {user: @user} %>
+      </div>
+    <% end %>
+  </div>
+  <div class="g">
+    <h3 class="g12-xs page-section__title">Designs</h3>
+    <ul class="g12-xs page-section__list">
+      <% @user_designs.each do |design| %>
+        <li class="card">
+          <h2 class="card__title">
+            <a class="card__link" href="/admin/designs/<%= design.token %>/edit"><%= design.title %></a>
+          </h2>
+          <div class="card__actions js-action-group" value="<%= design.token %>">
+            <%# if current_user.is_super_admin %>
+              <!-- <button class="card__button--delete js-delete-thing">
+                <span>Delete</span>
+              </button> -->
+            <%# end %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <input class="js-user-id" type="hidden" name="id" value="<%= @user.id %>">
+</section>

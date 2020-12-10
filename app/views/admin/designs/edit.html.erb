@@ -1,0 +1,73 @@
+<%# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  # Admin — Designs Edit
+  # location: views/admin/designs/edit.html.erb
+  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%>
+
+<header class="page-header">
+	<div class="g">
+		<div class="g8-xs">
+			<h1 class="page-header__title">Edit Design<%= @design.type == "purchase" ? " (purchase)" : "" %></h1>
+		</div>
+		<div class="g4-xs page-header__actions">
+			 <a href="/design/<%= @design.token %>" class="page-button page-button--yellow" target="_blank">Preview Page</a>
+		</div>
+	</div>
+</header>
+<section class="page-section js-thing-edit" data-slug="<%= @design.token %>" data-id="<%= @design.id %>">
+	<%= form_for(@design, url: admin_design_url, method: :put, html: { class: "g" }) do |f| %>
+	  <div class="g4-xs">
+	    <div class="g">
+        <div class="g12-xs">
+          <%= f.label :title, class: "page-edit__label" %>
+          <% if @design.type == "purchase" %>
+          	<p class="page-edit__text"><%= @design.title %></p>
+          <% else %>
+          	<%= f.text_field :title, class: "page-edit__input page-edit__input--title" %>
+          <% end %>
+        </div>
+        <div class="g12-xs">
+          <label for="creator" class="page-edit__label">Creator</label>
+          <%= link_to @design.creator.email, edit_admin_user_path(@design.creator), class: "page-edit__text" %>
+        </div>
+	    </div>
+	  </div>
+
+	  <div class="g2-xs">
+	    <div class="g">
+        <div class="g12-xs">
+          <label class="page-edit__label">Type</label>
+          <%= f.select :type, ["design", "demo"], {}, { class: "page-edit__select" } %>
+        </div>
+        <div class="g12-xs">
+          <% if @design.type == "purchase" %>
+			  		<label class="page-edit__label">Original ID</label>
+			  		<%= link_to Design.where(type: "design", id: @design.original_id).first.token, edit_admin_design_path(Design.where(type: "design", id: @design.original_id).first.token), class: "page-edit__text" %>
+			  	<% else %>
+			      <label class="page-edit__label">Purchase ID</label>
+			      <% if Design.where(type: "purchase", original_id: @design.id).exists? %>
+			      	<%= link_to Design.where(type: "purchase", original_id: @design.id).first.token, edit_admin_design_path(Design.where(type: "purchase", original_id: @design.id).first.token), class: "page-edit__text" %>
+			      <% else %>
+			      	<p class="page-edit__text">Unpurchased</p>
+			      <% end %>
+			    <% end %>
+        </div>
+	    </div>
+	  </div>
+
+	  <div class="g2-xs">
+      <%= f.label "Display Image", class: "page-edit__label" %>
+      <div class="js-image-container">
+        <% if !@design.image.to_s.strip.empty? %>
+          <%= render partial: "admin/partials/image", locals: { thing: @design } %>
+        <% else %>
+          <%= render partial: "admin/partials/image_new" %>
+        <% end %>
+      </div>
+    </div>
+
+	  <div class="g12-xs page-edit__submit">
+	    <%= f.submit class: "page-button page-button--yellow" %>
+	  </div>
+	<% end %>
+</section>

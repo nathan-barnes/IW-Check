@@ -1,0 +1,60 @@
+<%# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  # ImageWall — Menu Mobile
+  # location: views/partials/_menu-mobile.html.erb
+  #
+  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%>
+
+<nav class="menu menu-mobile">
+  <ul class="menu-mobile__list menu-mobile__list--actions">
+    <%# If Not Logged In %>
+    <% if !current_user %>
+      <li class="menu-mobile__item menu-mobile__item--signup">
+        <a href="/signup" class="menu-mobile__link menu-mobile__link--signup">
+          <span>Signup</span>
+        </a>
+      </li>
+      <li class="menu-mobile__item menu-mobile__item--login">
+        <a href="/login" class="menu-mobile__link menu-mobile__link--login">
+          <span>Login</span>
+        </a>
+      </li>
+    <%# If Logged In %>
+    <% else %>
+      <li class="menu-mobile__item">
+        <%= active_link_to "/edit", class: "menu-mobile__link menu-mobile__link--profile" do %>
+          <span>Profile</span>
+        <% end %>
+      </li>
+      <li class="menu-mobile__item">
+        <%= button_to destroy_user_session_path, method: :delete, class: "menu-mobile__link menu-mobile__link--logout" do %>
+          <span>Log out</span>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+
+  <ul class="menu-mobile__list">
+    <li class="menu-mobile__item">
+      <%= active_link_to "/design", class: "menu-mobile__link", itemprop: "url", "data-turbolinks": false do %>
+        <span itemprop="name">Design</span>
+      <% end %>
+    </li>
+    <% ["Features", "Materials", "Gallery", "Resources", "Contact"].each do |section| %>
+      <li class="menu-mobile__item">
+        <%= active_link_to "/#{section.downcase}", class: "menu-mobile__link", itemprop: "url" do %>
+          <span itemprop="name"><%= section %></span>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+
+  <ul class="menu-mobile__list">
+    <li class="menu-mobile__item menu-mobile__item--search">
+      <input class="menu-mobile__input" placeholder="Enter ImageWall ID">
+      <button class="menu-mobile__submit">
+        <span class="menu-mobile__arrow"></span>
+      </button>
+    </li>
+  </ul>
+</nav>

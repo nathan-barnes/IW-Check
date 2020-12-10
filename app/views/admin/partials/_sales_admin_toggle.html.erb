@@ -1,0 +1,5 @@
+<% if @admin || @user.is_sales_admin %>
+  <button class="page-edit__category is-active js-toggle-admin" name="sales">Sales</button>
+<% else %>
+  <button class="page-edit__category js-toggle-admin" name="sales">Sales</button>
+<% end %>

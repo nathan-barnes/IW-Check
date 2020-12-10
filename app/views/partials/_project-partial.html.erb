@@ -1,0 +1,14 @@
+<div class="project-modal g">
+  <div class="project-modal--controls g">
+    <div class="project-modal--control_back g6-md" data-modal-close>
+      <i class="fa fa-angle-left" aria-hidden="true"></i>
+      Back
+    </div>
+    <div class="project-modal--control_close g6-md">
+      <i class="fa fa-times" aria-hidden="true" data-modal-close></i>
+    </div>
+  </div>
+
+
+  <%= render partial: "/partials/project", locals: { project: project, modal: modal } %>
+</div>

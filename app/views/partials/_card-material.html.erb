@@ -1,0 +1,38 @@
+<%# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  # ImageWall Material Card
+  # location: views/partials/card-material.html.erb
+  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%>
+
+<% cache ["card-material", material] do %>
+	<article class="g12-xs g6-sm card-material" itemscope itemtype="https://schema.org/CreativeWork">
+		<div class="card-material__link">
+			<figure class="card-material__frame">
+				<% if material.image? %>
+					<%= ix_picture_tag(material.image,
+						picture_tag_options: {
+							class: "card-material__image"
+						},
+					  imgix_default_options: { w: 320, h: 240, q: 60, fit: "min", sizes: "100vw", widths: [320, 640] },
+					  breakpoints: {
+					  	"(min-width: 1281px)" => { sizes: "50vw", widths: [800, 1600] },
+					  	"(min-width:  961px)" => { sizes: "50vw", widths: [640, 1280] },
+					    "(min-width:  641px)" => { sizes: "50vw", widths: [480, 960] },
+		          "(min-width:  321px)" => { sizes: "100vw", widths: [640, 750, 960, 1080, 1280] }
+					  }
+					) %>
+		  	<% else %>
+		  		<picture><img></picture>
+		  	<% end %>
+			</figure>
+			<div class="card-material__action">
+				<%= link_to "Start your design", design_index_path, class: "card-material__button", title: "Start your design" %>
+			</div>
+			<div class="card-material__text">
+				<h3 class="card-material__title" itemprop="name"><%= material.title %></h3>
+				<span class="card-material__subtitle" itemprop="name"><%= material.subtitle %></span>
+				<p class="card-material__description"><%= material.description %></p>
+			</div>
+		</div>
+	</article>
+<% end %>

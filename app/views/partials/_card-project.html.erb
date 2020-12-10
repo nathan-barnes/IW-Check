@@ -1,0 +1,35 @@
+<%# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  # ImageWall Project Card
+  # location: views/partials/card-project.html.erb
+  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%>
+
+<% cache ["card-project", project] do %>
+	<article class="g12-xs g6-sm g4-md card card-project js-card-project" itemscope itemtype="https://schema.org/CreativeWork">
+		<%= link_to project_path(project), class: "card-project__link js-open-project-modal", itemprop: "url" do %>
+			<figure class="card-project__frame" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+		  	<% if featured_image(project) %>
+					<%= ix_picture_tag(featured_image(project),
+						picture_tag_options: {
+							class: "card-project__image"
+						},
+					  imgix_default_options: { w: 320, h: 240, q: 60, fit: "min", sizes: "100vw", widths: [320, 640], alt: project.title },
+					  breakpoints: {
+					  	"(min-width: 1601px)" => { sizes: "33vw", widths: [600, 1200] },
+					  	"(min-width: 1281px)" => { sizes: "33vw", widths: [480, 960] },
+					  	"(min-width:  961px)" => { sizes: "33vw", widths: [420, 840] },
+					    "(min-width:  641px)" => { sizes: "50vw", widths: [480, 960] },
+		          "(min-width:  321px)" => { sizes: "100vw", widths: [640, 750, 960, 1080, 1280] }
+					  }
+					) %>
+		  	<% else %>
+		  		<picture><img></picture>
+		  	<% end %>
+		  </figure>
+			<div class="card-project__text">
+				<span class="card-project__location"><%= project.location %></span>
+				<h3 class="card-project__title" itemprop="name"><%= project.title %></h3>
+			</div>
+		<% end %>
+	</article>
+<% end %>

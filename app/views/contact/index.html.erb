@@ -1,0 +1,74 @@
+<%# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  # ImageWall Contact Page
+  # location: views/contact/index.html.erb
+  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%>
+
+<%# Meta Tags %>
+<% content_for :metatags do %>
+  <%= render partial: "partials/head/metatags", locals: {
+    url: "https://www.imagewall.com/contact",
+    title: "Contact Us — ImageWall",
+    description: "We are here to help. Let us know how we can make your project a success."
+  } %>
+<% end %>
+
+<header class="page-header">
+  <div class="g page-header__text">
+    <h1 class="g12-xs g10-md g1-md-offset page-header__title">Contact</h1>
+    <p class="g12-xs g10-md g1-md-offset page-header__description">Talk to us. Call <%= link_to "+1 816-423-8354", "tel:1-816-423-8354", class: "page-header__link" %> or leave a message here.</p>
+  </div>
+</header>
+
+<section class="page-section page-section--center">
+  <div class="g">
+    <h2 class="g12-xs page-section__title">Get in Touch</h2>
+  </div>
+  <form class="g page-form">
+    <div class="g12-xs g6-sm g5-md g1-md-offset">
+      <div class="g">
+        <div class="g12-xs g6-sm">
+          <label for="firstName" class="page-form__label">First Name*</label>
+          <span class="page-form__error">Required</span>
+          <input type="text" class="page-form__input js-contact-input" name="firstName" placeholder="Jon">
+        </div>
+        <div class="g12-xs g6-sm">
+          <label for="lastName" class="page-form__label">Last Name*</label>
+          <span class="page-form__error">Required</span>
+          <input type="text" class="page-form__input js-contact-input" name="lastName" placeholder="Snow">
+        </div>
+        <div class="g12-xs">
+          <label for="email" class="page-form__label">Email*</label>
+          <span class="page-form__error">A valid email is required</span>
+          <input type="email" class="page-form__input js-contact-input" name="email" placeholder="you@example.com">
+        </div>
+      </div>
+    </div>
+    <div class="g12-xs g6-sm g5-md">
+      <label for="body" class="page-form__label">Message</label>
+      <span class="page-form__error">Required</span>
+      <textarea type="text" class="page-form__textarea js-contact-input" name="body" placeholder="I'm interested in..."></textarea>
+    </div>
+    <div class="g12-xs page-form__contact">
+      <span class="page-form__button js-contact-submit">Submit</span>
+    </div>
+  </form>
+</section>
+
+<section class="page-section page-section--center">
+  <div class="g">
+    <h2 class="g12-xs page-section__title">Locations</h2>
+    <div class="g12-xs g10-md g1-md-offset" itemprop="hasMap" itemscope itemtype="https://schema.org/Map">
+      <div class="page-section__map" id="js-map"></div>
+    </div>
+    <div class="g12-xs page-section__address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+      <span itemprop="streetAddress">1400 East 9th Street</span><br>
+      <span itemprop="addressLocality">Kansas City</span>, <span itemprop="addressRegion">MO</span> <span itemprop="postalCode">64106</span>
+    </div>
+  </div>
+</section>
+
+<%= render partial: "partials/page-cta" %>
+
+<!-- Change this key -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['google_key'] %>&callback=initMap"></script>

@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+}
+body {
+	color: #0F1010;
+	font-family: "din-2014";
+}
+.invoice__header {
+	display: table;
+	width: 100%;
+	margin-bottom: 60px;
+}
+.invoice__section {
+	display: table;
+	width: 100%;
+	margin-bottom: 48px;
+}
+.invoice__section--no-margin {
+	margin-bottom: 0;
+}
+.invoice__block {
+	width: 50%;
+	float: left;
+}
+.invoice__block--left {
+	padding-right: 0.5em;
+}
+.invoice__block--right {
+	padding-left: 0.5em;
+}
+.invoice__logo {
+	color: #FFCF44;
+	font-size: 55px;
+}
+.invoice__link {
+	color: #0F1010;
+	text-decoration: none;
+	border-bottom: 1px solid #0F1010;
+}
+.invoice__title {
+	font-size: 26px;
+	text-align: right;
+	text-transform: uppercase;
+}
+.invoice__subtitle {
+	margin: 0;
+	font-size: 16px;
+	text-transform: uppercase;
+}
+.invoice__subtitle--gray {
+	color: #535858;
+}
+.invoice__text {
+	display: block;
+	margin: 0.25em 0;
+	color: #535858;
+	font-size: 22.5px;
+	font-style: normal;
+}
+.invoice__text--small {
+	margin: 0.25em 0 0.5em;
+	color: #535858;
+	font-size: 16px;
+	font-style: normal;
+}
+.invoice__list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.invoice__item {
+	margin: 0;
+	padding: 12px 18px;
+}
+.invoice__item:nth-child(odd) {
+	background-color: #F7F9F9;
+}
+.invoice__item:nth-child(2) {
+	border-bottom: 1px solid #E1EAEA;
+}
+.invoice__description {
+	display: inline-block;
+	float: left;
+	width: 50%;
+	font-size: 22.5px;
+	font-style: normal;
+	text-transform: uppercase;
+}
+.invoice__price {
+	display: inline-block;
+	width: 50%;
+	font-size: 22.5px;
+	font-style: normal;
+	text-align: right;
+}
